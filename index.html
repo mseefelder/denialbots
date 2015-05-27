@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <!-- Basic Page Needs
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta charset="utf-8">
+  <title>DoS, DDoS e Botnets</title>
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!-- Mobile Specific Metas
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- FONT
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+
+  <!-- CSS
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/skeleton.css">
+  <link rel="stylesheet" href="css/custom.css">
+
+  <!-- Favicon
+  <link rel="icon" type="image/png" href="images/favicon.png">
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+
+  <!-- Scripts
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <script src="js/jquery.min.js"></script>
+  <script src="js/site.js"></script>
+
+</head>
+<body>
+
+  <!-- Primary Page Layout
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <div class="container">
+
+    <section class="header">
+      <div class="row">
+      <h2 class="title">Negação de Serviço e Botnets</h2>
+      </div>
+
+      <div class="row">
+      <a style="font-size: 1.5rem;" href="http://www.gta.ufrj.br/ensino/eel878/index.html">EEL878 - Redes de Computadores I (DEL) - 2015/1</a>
+      </div>
+
+      <div class="row">
+      <div class="six columns">
+      <p style="font-size: 1.2rem; text-align:left;" >Professor: Otto Carlos Muniz Bandeira Duarte</p>
+      </div>
+      <div class="six columns">
+      <p style="font-size: 1.2rem; text-align:right;" >GTA / UFRJ</p>
+      </div>
+      </div>
+
+      <div class="row">
+      <div class="six columns" style="font-size: 1.2rem; text-align:left;">
+      <ul>Alunos:
+        <li>Lucas de Carvalho Gomes;</li>
+        <li>Marcos Seefelder de Assis Araujo;</li>
+        <li>Vinícius Silva Campos.</li>
+      </ul>
+      </div>
+      <div class="six columns">
+      <p style="font-size: 1.2rem; text-align:right;" >Engenharia de Computação e Informação / UFRJ</p>
+      </div>
+      </div>
+
+      <div class="row">
+      <p style="font-size: 0.9rem; text-align: justify;">Este trabalho foi totalmente produzido pelos autores que declaram não terem violado os
+        direitos autorais de terceiros, sejam eles pessoas físicas ou jurídicas. Havendo textos,
+        tabelas e figuras transcritos de obras de terceiros com direitos autorais protegidos ou de
+        domínio público tal como idéias e conceitos de terceiros, mesmo que sejam encontrados na
+        Internet, os mesmos estão com os devidos créditos aos autores originais e estão incluídas
+        apenas com o intuito de deixar o trabalho autocontido. O(s) autor(es) tem(êm) ciência dos
+        Artigos 297 a 299 do Código Penal Brasileiro e também que o uso do artifício de copiar/colar
+        texto de outras fontes e outras formas de plágio é um ato ilícito, condenável e passível de
+        punição severa. No contexto da Universidade a punição não precisa se restringir à reprovação
+        na disciplina e pode gerar um processo disciplinar que pode levar o(s) aluno(s) à
+        suspensão.</p>
+      </div>
+    </section>
+
+    <div class="navbar-spacer"></div>
+
+    <nav class="navbar">
+      <div class="container">
+        <ul class="navbar-list">
+          <li class="navbar-item"><a class="navbar-link" href="#intro">Introdução</a></li>
+          <li class="navbar-item"><a class="navbar-link" href="#hist">História</a></li>
+          <li class="navbar-item">
+            <a class="navbar-link" href="#dos" data-popover="#dosPopover"><i>DoS</i></a>
+            <div id="dosPopover" class="popover">
+              <ul class="popover-list">
+                <li class="popover-item">
+                  <a class="popover-link" href="#dos">O que é?</a>
+                </li>
+                <li class="popover-item">
+                  <a class="popover-link" href="#dos">Métodos de ataque</a>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li class="navbar-item">
+            <a class="navbar-link" href="#bot" data-popover="#botPopover"><i>Botnets</i></a>
+            <div id="botPopover" class="popover">
+              <ul class="popover-list">
+                <li class="popover-item">
+                  <a class="popover-link" href="#bot">O que são?</a>
+                </li>
+                <li class="popover-item">
+                  <a class="popover-link" href="#bot">Tipos de <i>botnets</i></a>
+                </li>
+                <li class="popover-item">
+                  <a class="popover-link" href="#bot">Como funcionam?</a>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li class="navbar-item">
+            <a class="navbar-link" href="#ddos" data-popover="#ddosPopover"><i>DDoS</i></a>
+            <div id="ddosPopover" class="popover">
+              <ul class="popover-list">
+                <li class="popover-item">
+                  <a class="popover-link" href="#dos">Um caso particular de negação de serviços</a>
+                </li>
+                <li class="popover-item">
+                  <a class="popover-link" href="#dos">Tipos</a>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li class="navbar-item"><a class="navbar-link" href="#prot">Proteção</a></li>
+          <li class="navbar-item"><a class="navbar-link" href="#contex">Contextualização</a></li>
+        </ul>
+      </div>
+    </nav>
+
+
+    <!-- Introdução -->
+    <div class="docs-section" id="intro">
+      <h5 class="docs-header">1. Introdução</h5>
+      <div class="example-grid docs-example">
+
+        <div class="row">
+            <div class="container">
+              <p> AQUI ENTRA UM PEQUENO RESUMO DO TRABALHO. </p>
+            </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- História -->
+    <div class="docs-section" id="hist">
+      <h5 class="docs-header">2. História</h5>
+      <div class="example-grid docs-example">
+
+        <div class="row">
+            <div class="container">
+              <p> AQUI DESCREVEREMOS O CONTEXTO DE COMO SURGEM OS PRIMEIROS ATAQUES NA HISTÓRIA. </p>
+            </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- DoS -->
+    <div class="docs-section" id="dos">
+      <h5 class="docs-header">3. <i>Denial of Service</i> - Negação de Serviço (DoS)</h5>
+      <div class="example-grid docs-example">
+
+
+      <div class="row">
+          <div class="container">
+            <h6>3.1. O quê é?</h6>
+            <p> DEFINIÇÃO DE UM ATAQUE DE NEGAÇÃO DE SERVIÇOS </p>
+          </div>
+      </div>
+
+
+      <div class="row">
+          <div class="container">
+            <h6>3.2. Métodos de Ataque</h6>
+            <p> EXEMPLOS DOS PRINCIPAIS MÉTODOS DE ATAQUE </p>
+          </div>
+      </div>
+
+
+      </div>
+    </div>
+
+    <!-- Botnets -->
+    <div class="docs-section" id="bot">
+      <h5 class="docs-header">4. <i>Botnets</i></h5>
+      <div class="example-grid docs-example">
+
+        <div class="row">
+            <div class="container">
+              <h6>4.1. O que são?</h6>
+              <p> DEFINIÇÃO DE BOTNET </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="container">
+              <h6>4.2. Tipos de <i>botnets</i></h6>
+              <p> DISCUTIR SOBRE A EXISTÊNCIA DE BOTNETS BOAS E MALIGNAS </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="container">
+              <h6>4.3. Como funcionam?</h6>
+              <p> FUNCIONAMENTO E INFRA-ESTRUTURA DE BOTNETS </p>
+            </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- DDoS -->
+    <div class="docs-section" id="ddos">
+      <h5 class="docs-header">5. <i>Distributed Denial of Service</i> - Negação de Serviço Distribuída (DDoS) </h5>
+      <div class="example-grid docs-example">
+
+        <div class="row">
+            <div class="container">
+              <h6>5.1. Um caso particular de Negação de Serviço</h6>
+              <p> DEFINIÇÃO DE DDOS COMO SENDO UM CASO PARTICULAR DE DOS </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="container">
+              <h6>5.2. Tipos</h6>
+              <p> PRINCIPAIS TIPOS DE ATAQUES DDOS </p>
+            </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Proteção -->
+    <div class="docs-section" id="prot">
+      <h5 class="docs-header">6. Proteção</h5>
+      <div class="example-grid docs-example">
+
+        <div class="row">
+            <div class="container">
+              <p> COMO SE PROTEGER DE ATAQUES OU DE SE TORNAR UMA MÁQUINA ZOMBIE </p>
+            </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Contextualização -->
+    <div class="docs-section" id="contex">
+      <h5 class="docs-header">7. Contextualização</h5>
+      <div class="example-grid docs-example">
+
+        <div class="row">
+            <div class="container">
+              <p> NOTÍCIAS RECENTES E QUESTÕES </p>
+            </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+<!-- End Document
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+</body>
+</html>
