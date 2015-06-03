@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <!-- Basic Page Needs
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta charset="utf-8">
+  <title>DoS, DDoS e Botnets</title>
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!-- Mobile Specific Metas
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- FONT
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+
+  <!-- CSS
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/skeleton.css">
+  <link rel="stylesheet" href="css/custom.css">
+
+  <!-- Favicon
+  <link rel="icon" type="image/png" href="images/favicon.png">
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+
+  <!-- Scripts
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <script src="js/jquery.min.js"></script>
+  <script src="js/site.js"></script>
+
+</head>
+<body>
+
+  <!-- Primary Page Layout
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <div class="container">
+
+    <section class="header">
+      <div class="row">
+      <h2 class="title">Negação de Serviço e Botnets</h2>
+      </div>
+
+      <div class="row">
+      <a style="font-size: 1.5rem;" href="http://www.gta.ufrj.br/ensino/eel878/index.html">EEL878 - Redes de Computadores I (DEL) - 2015/1</a>
+      </div>
+
+      <div class="row">
+      <div class="six columns">
+      <p style="font-size: 1.2rem; text-align:left;" >Professor: Otto Carlos Muniz Bandeira Duarte</p>
+      </div>
+      <div class="six columns">
+      <p style="font-size: 1.2rem; text-align:right;" >GTA / UFRJ</p>
+      </div>
+      </div>
+
+      <div class="row">
+      <div class="six columns" style="font-size: 1.2rem; text-align:left;">
+      <ul>Alunos:
+        <li>Lucas de Carvalho Gomes;</li>
+        <li>Marcos Seefelder de Assis Araujo;</li>
+        <li>Vinícius Silva Campos.</li>
+      </ul>
+      </div>
+      <div class="six columns">
+      <p style="font-size: 1.2rem; text-align:right;" >Engenharia de Computação e Informação / UFRJ</p>
+      </div>
+      </div>
+
+      <div class="row">
+      <p style="font-size: 0.9rem; text-align: justify;">Este trabalho foi totalmente produzido pelos autores que declaram não terem violado os
+        direitos autorais de terceiros, sejam eles pessoas físicas ou jurídicas. Havendo textos,
+        tabelas e figuras transcritos de obras de terceiros com direitos autorais protegidos ou de
+        domínio público tal como idéias e conceitos de terceiros, mesmo que sejam encontrados na
+        Internet, os mesmos estão com os devidos créditos aos autores originais e estão incluídas
+        apenas com o intuito de deixar o trabalho autocontido. O(s) autor(es) tem(êm) ciência dos
+        Artigos 297 a 299 do Código Penal Brasileiro e também que o uso do artifício de copiar/colar
+        texto de outras fontes e outras formas de plágio é um ato ilícito, condenável e passível de
+        punição severa. No contexto da Universidade a punição não precisa se restringir à reprovação
+        na disciplina e pode gerar um processo disciplinar que pode levar o(s) aluno(s) à
+        suspensão.</p>
+      </div>
+    </section>
+
+    <div class="navbar-spacer"></div>
+
+    <nav class="navbar">
+      <div class="container">
+        <ul class="navbar-list">
+          <li class="navbar-item"><a class="navbar-link" href="#intro">Introdução</a></li>
+          <li class="navbar-item"><a class="navbar-link" href="#hist">História</a></li>
+          <li class="navbar-item">
+            <a class="navbar-link" href="#dos" data-popover="#dosPopover"><i>DoS</i></a>
+            <div id="dosPopover" class="popover">
+              <ul class="popover-list">
+                <li class="popover-item">
+                  <a class="popover-link" href="#dos">O que é?</a>
+                </li>
+                <li class="popover-item">
+                  <a class="popover-link" href="#dos">Métodos de ataque</a>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li class="navbar-item">
+            <a class="navbar-link" href="#ddos" data-popover="#ddosPopover"><i>DDoS</i></a>
+            <div id="ddosPopover" class="popover">
+              <ul class="popover-list">
+                <li class="popover-item">
+                  <a class="popover-link" href="#dos">Um caso particular de negação de serviços</a>
+                </li>
+                <li class="popover-item">
+                  <a class="popover-link" href="#dos">Tipos</a>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li class="navbar-item">
+            <a class="navbar-link" href="#bot" data-popover="#botPopover"><i>Botnets</i></a>
+            <div id="botPopover" class="popover">
+              <ul class="popover-list">
+                <li class="popover-item">
+                  <a class="popover-link" href="#bot">O que são bots?</a>
+                </li>
+                <li class="popover-item">
+                  <a class="popover-link" href="#bot">Protocolos usados</a>
+                </li>
+                <li class="popover-item">
+                  <a class="popover-link" href="#bot">Como se propaga</a>
+                </li>
+                <li class="popover-item">
+                  <a class="popover-link" href="#bot"><i>Botnet</i> – Definição</a>
+                </li>
+                <li class="popover-item">
+                  <a class="popover-link" href="#bot">Topologias de comunicação da botnet</a>
+                </li>
+                <li class="popover-item">
+                  <a class="popover-link" href="#bot">Atividades Maliciosas</a>
+                </li>
+                <li class="popover-item">
+                  <a class="popover-link" href="#bot">Botnets legais</a>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li class="navbar-item">
+            <a class="navbar-link" href="#prot" data-popover="#protPopover">Proteção</a>
+            <div id="protPopover" class="popover">
+              <ul class="popover-list">
+                <li class="popover-item">
+                  <a class="popover-link" href="#prot">Prevenir</a>
+                </li>
+                <li class="popover-item">
+                  <a class="popover-link" href="#prot">Detectar</a>
+                </li>
+                <li class="popover-item">
+                  <a class="popover-link" href="#prot">Responder</a>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li class="navbar-item">
+            <a class="navbar-link" href="#contex" data-popover="#contexPopover">Contextualização</a>
+            <div id="contexPopover" class="popover">
+              <ul class="popover-list">
+                <li class="popover-item">
+                  <a class="popover-link" href="#contex">Notícias</a>
+                </li>
+                <li class="popover-item">
+                  <a class="popover-link" href="#contex">Questões</a>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li class="navbar-item"><a class="navbar-link" href="#conc">Conclusão</a></li>
+          <li class="navbar-item"><a class="navbar-link" href="#ref">Referências</a></li>
+        </ul>
+      </div>
+    </nav>
+
+
+    <!-- Introdução -->
+    <div class="docs-section" id="intro">
+      <h5 class="docs-header">1. Introdução</h5>
+      <div class="example-grid docs-example">
+
+        <div class="row">
+            <div class="container">
+              <p>Esta página é dedicada ao estudo de ataques de rede, começando por um pequeno <a href="#hist" style="color: black;">histórico</a> dessas atividades maliciosas, seguido de um enfoque em <a href="#dos" style="color: black;">ataques de negação de serviço</a> (<i>Denial of Service - DoS</i>) e <a href="#ddos" style="color: black;">ataques de negação de serviço distribuída</a> (<i>Distributed Denial of Service - DDoS</i>). O tema de <a href="#bot" style="color: black;"><i>botnets</i></a> também é abordado, uma vez que são o método mais utilzado para a realização de ataques <b><i>DDoS</i></b>. Na sequência analisaremos as principais <a href="#prot" style="color: black;">táticas para prevenir, detectar e responder</a> aos ataques e por último apresentamos uma <a href="#contex" style="color: black;">contextualização</a> do assunto com notícias recentes e algumas questões para reflexão.</p>
+            </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- História -->
+    <div class="docs-section" id="hist">
+      <h5 class="docs-header">2. História</h5>
+      <div class="example-grid docs-example">
+
+        <div class="row">
+            <div class="container">
+              <p> AQUI DESCREVEREMOS O CONTEXTO DE COMO SURGEM OS PRIMEIROS ATAQUES NA HISTÓRIA. </p>
+            </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- DoS -->
+    <div class="docs-section" id="dos">
+      <h5 class="docs-header">3. <i>Denial of Service</i> - Negação de Serviço (DoS)</h5>
+      <div class="example-grid docs-example">
+
+
+      <div class="row">
+          <div class="container">
+            <h6>3.1. O quê é?</h6>
+            <p>Os ataques de <i>Denial of Service</i>, ou <b>Negação de Serviço</b>, são, como o nome diz, um tipo de ataque cujo objetivo é <b>interromper ou prejudicar o fornecimento de um serviço</b>. Por exemplo, um ataque <i>DoS</i> pode ser realizado para sobrecarregar uma rede de modo a torná-la lenta, para afetar a estabilidade de serviços de e-mail ou para impedir o acesso de uma página da Internet.</p>
+            <p>Nesses ataques, são exploradas vulnerabilidades dos sistemas operacionais e dos protocolos de rede usados pela máquina-alvo, de modo a sobrecarregar o seu alvo. Dessa forma, usuários legítimos ficam impedidos de acessar o serviço, pois o servidor não consegue processar suas requisições.</p>
+          </div>
+      </div>
+
+
+      <div class="row">
+          <div class="container">
+            <h6>3.2. Métodos de Ataque</h6>
+            <h6>3.2.1 <i>Syn Flooding</i></h6>
+            <p>Os alvos desse tipo de ataque são máquinas que usam o <i>TCP</i> (<i>Transmission Control Protocol</i>), um dos protocolos usados na <i>Internet</i>, na camada de transporte. Esse ataque explora o processo do <i>handshake</i>, usado para iniciar uma conexão. Esse processo consiste no envio de três pacotes entre cliente e servidor: <i>SYN</i>, <i>SYN-ACK</i> e <i>ACK</i>. Além disso, o servidor usa uma estrutura de dados chamada <i>Transmission Control Block</i> (<i>TCB</i>) para armazenar os dados da conexão em sua memória.
+            </p><p>
+            Para estabelecer uma conexão normal, o cliente envia um pacote <i>SYN</i> para o servidor, solicitando a conexão. Ao receber esse pacote, o servidor responde com o <i>SYN-ACK</i>, uma confirmação de recebimento, e reserva um TCB para essa conexão no estado <i>SYN-RECEIVED</i>, que indica que a conexão está parcialmente aberta e que sua validade ainda não foi confirmada. Quando o cliente recebe o <i>SYN-ACK</i>, ele envia o pacote <i>ACK</i> para o servidor, que, recebendo-o, abre a conexão e muda o <i>TCB</i> para o estado <i>ESTABLISHED</i> (conexão estabelecida).
+            </p><p>
+            O ataque explora essa funcionalidade enviando vários pacotes <i>SYN</i> para a máquina-alvo, sem enviar os <i>ACK</i>s de resposta. Dessa forma, o alvo armazena <i>TCB</i>s até que sua memória é esgotada, ponto no qual ele não consegue processar mais requisições. Para evitar esse esgotamento que pode parar a máquina, os sistemas operacionais limitam a quantidade de <i>TCB</i>s armazenados no estado <i>SYN-RECEIVED</i> por um valor chamado de <i>backlog</i>. Porém, mesmo assim, o ataque impede a formação de novas conexões, pois o limite é alcançado.
+            </p><p>
+            Esse ataque pode ser feito de forma direta, ou seja, sem mascarar o endereço <i>IP</i> do atacante. Essa forma de ataque pode ser facilmente interrompida incluindo-se um filtro de <i>IP</i> no firewall, impedindo a recepção de pacotes vindos do computador atacante.
+            </p><p>
+            Outra alternativa é fazer o chamado <i>IP Spoofing</i>, ou seja, o mascaramento de endereços <i>IP</i>, aproveitando-se do fato de que não há verificação do remetente nos comutadores da rede. Para fazer isso, o atacante deve inserir cabeçalhos de <i>TCP</i> e <i>IP</i> válidos nos pacotes, ou seja, deve usar endereços <i>IP</i> válidos. Pode-se usar um único endereço de alguma máquina que não vai enviar um <i>ACK</i> de resposta porque ela não existe ou por causa de alguma propriedade da rede ou usar vários endereços de uma lista, esperando que as máquinas de alguns desses endereços não respondam. A desvantagem de usar um único <i>IP</i> é que, novamente, pode-se usar um filtro de <i>IP</i>s para evitar o ataque.
+            </p><p>
+            A vantagem do <i>SYN Flooding</i> é que ele precisa do envio de menos pacotes do que um ataque de força bruta, uma vez que os <i>TCB</i>s são armazenados por um longo tempo até serem descartados.</p>
+            
+            <h6>Ataque <i>Smurf</i></h6>
+            <p>Esse ataque usa o <i>Internet Control Message Protocol</i> (<i>ICMP</i>), usado para troca de mensagens de controle, tratamento de erros e diagnósticos de rede. Esse protocolo pode ser usado para verificar se uma máquina da <i>Internet</i> está respondendo, enviando um pacote de “requisição de eco” (<i>echo request</i>). Ao receber esse pacote, a máquina responde com um pacote de resposta ao eco (<i>echo reply packet</i>).  Uma implementação comum desse processo é o comando <i><b>ping</b></i>, implementado em vários sistemas operacionais e softwares relacionados a redes de computadores.</p>
+            <p>Essa funcionalidade pode ser explorada enviando-se vários pacotes de requisição de eco para o endereço <i>IP</i> de <i>broadcast</i>. Um pacote enviado para esse endereço é recebido por um comutador da rede local e retransmitido para todos os computadores dentro da rede local definida por esse endereço, e isso é possível de ser feito por uma máquina dentro ou fora da rede local. Esses pacotes têm o endereço <i>IP</i> do remetente mascarado com o endereço <i>IP</i> da máquina da vítima.</p>
+            <p>Ao receberem os pacotes de requisição de eco, todas as máquinas da rede local respondem com outro pacote de resposta ao eco. Como são feitas várias requisições, a rede fica congestionada. Além disso, como o endereço <i>IP</i> de remetente das requisições é o endereço da máquina vítima, localizada nessa rede, a vítima recebe, além das requisições de eco, as respostas de todos os nós da rede, incluindo a própria vítima, causando instabilidade e podendo impossibilitá-la de fornecer serviços.</p>
+            <p>O nome <i>Smurf</i> vem de um programa popular para realizar esse tipo de ataque.</p>
+            
+            <h6>Ataques <i>Fraggle</i></h6>
+            <p>Esses ataques são variantes do ataque <i>Smurf</i> para o protocolo <i>UDP</i> (<i>User Datagram Protocol</i>). A diferença é que os pacotes <i>UDP</i>, depois de utilizado o <i>IP Spoofing</i>, são enviados para a porta 7 do protocolo (porta de eco). Ao receber esse pacote, o comutador da rede local retransmite o pacote de requisição para todos os nós da rede e as respostas são enviadas para a vítima.</p>
+            
+            <h6><i>Ping</i> da morte</h6>
+            <p>O ataque do <i>ping</i> da morte utiliza as funcionalidades de fragmentação e remontagem dos pacotes, usadas na transmissão de dados. O tamanho máximo de um pacote <i>IP</i>, com cabeçalho, é 65535 <i>bytes</i>. A camada de enlace limita o tamanho dos quadros a um valor, que para uma rede <i>Ethernet</i> é de 1500 bytes. Assim, um pacote <i>IP</i> é dividido em vários pacotes <i>IP</i> (fragmentos) e enviados. No <i>ping</i> da morte, os dados são manipulados de forma que o receptor dos dados forma um pacote maior que 65535 <i>bytes</i> na remontagem, o que pode estourar <i>buffers</i> da memória, causando a negação do serviço.</p>
+            
+            <h6><i>HTTP Flood</i></h6>
+            <p>Esse ataque explora as requisições do <i>HTTP</i> (<i>Hypertext Transfer Protocol</i>), principalmente as requisições <i>GET</i> e <i>POST</i> para atacar um servidor web. As requisições <i>GET</i> são usadas para obter conteúdo estático, como texto e imagens, do servidor, enquanto as requisições POST são usadas para obter recursos gerados dinamicamente.</p>
+            <p>O objetivo do ataque é enviar várias requisições de processamento de conteúdo para o servidor, de forma a esgotar os recursos do alvo. Por isso, as requisições <i>POST</i> tendem a ser mais eficientes, uma vez que exigem processamento mais complexo por parte do servidor. No entanto, ataques por requisições <i>GET</i> são mais simples e mais escaláveis se forem distribuídos.</p>
+            
+            <h6>Ataques de <i>DNS</i></h6>
+            <p>...</p>
+          </div>
+      </div>
+
+
+      </div>
+    </div>
+
+    <!-- DDoS -->
+    <div class="docs-section" id="ddos">
+      <h5 class="docs-header">4. <i>Distributed Denial of Service</i> - Negação de Serviço Distribuída (DDoS) </h5>
+      <div class="example-grid docs-example">
+
+        <div class="row">
+            <div class="container">
+              <h6>4.1. Um caso particular de Negação de Serviço</h6>
+              <p> DEFINIÇÃO DE DDOS COMO SENDO UM CASO PARTICULAR DE DOS </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="container">
+              <h6>4.2. Tipos</h6>
+              <p> PRINCIPAIS TIPOS DE ATAQUES DDOS </p>
+            </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Botnets -->
+    <div class="docs-section" id="bot">
+      <h5 class="docs-header">5. <i>Botnets</i></h5>
+      <div class="example-grid docs-example">
+
+        <div class="row">
+            <div class="container">
+              <h6>5.1. O que são bots?</h6>
+              <p> O termo <i>bot</i> é derivado de <i>“robot”</i> (robô em inglês) . <i>Bot</i> é um termo genérico usado para descrever um <i>script</i> ou um conjunto de <i>scripts</i> criados para desempenhar funções preestabelecidadas de forma automatizada. <i>Bots</i> são utilizados por máquinas de buscas para caminhar pela <i>web</i> tomando conhecimento dos conteúdos dos <i>websites</i> e em jogos online para prover oponentes virtuais.  Como exemplo concreto podemos citar a rede <i>IRC</i>i> na qual as funções dos <i>bots</i> nos canais incluem acesso à listas, movimentação de arquivos, compartilhamento de usuários , compartilhamento de informação do canal, e muitas outras funcionalidades desde que os devidos scripts sejam adicionados corretamente [11].  </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="container">
+              <h6>5.2. Protocolos usados - <i>IRC</i></h6>
+              <p>Diversos protocolos podem ser utilizados para a realização de comunicação em <i>botnets</i>. Dentre os mais conhecidos temos o <i>Internet Relay Chat (IRC).</i></p>
+              <p>O <i>IRC</i> é um protocolo de internet criado pelo finlandês Jarkko Oikarinen, em 1998.  O objetivo desse protocolo é permitir que as pessoas conectadas à internet possam interagir em conversas por texto em tempo real [11]. Cada discussão está em um canal e várias pessoas podem ingressar nesse canal conjuntamente. O protocolo <i>IRC</i>i> é baseado na arquitetura cliente-servidor e é apropriada para execução distribuída em várias máquinas.</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="container">
+              <h6>5.3. Como se propaga – atacante e vítima , prioridade de contaminação</h6>
+              <p>Os <i>bots</i> podem ser utilizados de forma maliciosa. Isto ocorre através da infecção de máquinas (vítimas)  por meio do atacante através da exploração de vulnerabilidades, de aplicações ou do próprio sistema operacional,  ou instalação do <i>bot</i> de forma não intencional. Após ser instalado o <i>bot</i> modifica variáveis do sistemas operacional para que seja inicializado toda vez que o sistema for inicializado. Com isso, os <i>bots</i> das máquinas vítimas estariam conectados com o <i>bot</i> da máquina atacante: a esse último damos o nome de <i>bot</i> mestre. O <i>bot</i> mestre pode causar grandes danos ao utilizar conjuntamente os <i>bots</i> presentes nas máquinas infectadas, as atividades maliciosas que podem ser realizadas serão melhor detalhadas na seção <b>6</b>. </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="container">
+              <h6>5.4. 4. <i>Botnet</i> – Definição</h6>
+              <p>Um conjunto de <i>bots</i> servindo juntos a um mesmo <i>bot</i> mestre constitui uma <i>botnet</i>. Com a finalidade de possibilitar a interação entre os <i>bots</i> e o <i>bot</i> mestre foram criadas algumas capacidades de comunicação que possibilitariam a recepção de comandos e o envio de resultados ao <i>bot</i> mestre. Segundo [6], existem dois tipos diferentes nos quais um <i>bot</i> pode receber comandos de seu mestre, são eles: (1) o modo de <b>“puxar”</b> e o modo de <b>“empurrar”</b>. Ambos precisam de um servidor de <i>command-and-control</i> (C&C)  que “conversa” com os <i>bots</i>.</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="container">
+              <h6>5.5. Topologias de comunicação da botnet</h6>
+              <p>Diversas topologias <i>C&C</i> são empregadas com o intuito de garantir defesas comerciais, desligamentos determinados por lei e tentativas de “sequestro” de <i>bots</i> [15]. Essas topologias vem sendo otimizadas para reduzir <i>network chatter</i> e as falhas do sistema. As principais topologias utilizadas são : <b>estrela</b>, <b>multi-servidor</b>, <b>hierárquica</b> e <b>randômica</b>. </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="container">
+              <h6>5.6. 6. Atividades maliciosas</h6>
+              <p>Diversas atividades maliciosas podem ser desempenhadas com o uso de <i>botnets</i>. A principal é o ataque por negação de serviços distribuidos, cujas informações se encontram na seção <a href="#ddos">4</a>. Atividades como a <b>“infecção local secundária”</b> (<i>secondary local infection</i>) forçam a instalação de <i>key logger</i> ou cavalo de tróia para a obtenção de dados pessoais da vítima [11] . Demais atividades como <b>“troca de banda”</b>, <b><i>backdoor</i></b> e <b>armazenamento de dados ilegais</b> também serão abordados ao longo desta subseção.</p>
+              <p>...</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="container">
+              <h6>5.8. Botnets Legais</h6>
+              <p>
+              <a href="">The Honeynet Project</a>; 
+              <a href="">Charity Engine</a>; 
+              <a href="">Folding @ home</a>
+              <p>
+            </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Proteção -->
+    <div class="docs-section" id="prot">
+      <h5 class="docs-header">6. Proteção</h5>
+      <div class="example-grid docs-example">
+
+        <div class="row">
+          <div class="container">
+            <h6>6.1. Prevenir</h6>
+            <div class="container">
+              <p> COMO SE PROTEGER DE ATAQUES </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="container">
+            <h6>6.2. Detectar</h6>
+            <div class="container">
+              <p> COMO DETECTAR ATAQUES </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="container">
+            <h6>6.3. Responder</h6>
+            <div class="container">
+              <p> COMO RESPONDER A ATAQUES </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Contextualização -->
+    <div class="docs-section" id="contex">
+      <h5 class="docs-header">7. Contextualização</h5>
+      <div class="example-grid docs-example">
+
+        <div class="row">
+            <div class="container">
+              <h6>7.1. Notícias</h6>
+              <p> NOTÍCIAS RECENTES</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="container">
+              <h6>7.2. Questões</h6>
+              <p>QUESTÕES</p>
+            </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Conclusão -->
+    <div class="docs-section" id="conc">
+      <h5 class="docs-header">8. Conclusão</h5>
+      <div class="example-grid docs-example">
+
+        <div class="row">
+            <div class="container">
+              <p> Conclusão </p>
+            </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Referências -->
+    <div class="docs-section" id="ref">
+      <h5 class="docs-header">9. Referências</h5>
+      <div class="example-grid docs-example">
+
+        <div class="row">
+            <div class="container">
+              <p> REFERÊNCIAS </p>
+            </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+<!-- End Document
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+</body>
+</html>
