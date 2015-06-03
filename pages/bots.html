@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <!-- Basic Page Needs
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta charset="utf-8">
+  <title>DoS, DDoS e Botnets</title>
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!-- Mobile Specific Metas
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- FONT
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+
+  <!-- CSS
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="stylesheet" href="../css/normalize.css">
+  <link rel="stylesheet" href="../css/skeleton.css">
+  <link rel="stylesheet" href="../css/custom.css">
+
+  <!-- Favicon
+  <link rel="icon" type="image/png" href="images/favicon.png">
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+
+  <!-- Scripts
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <script src="../js/jquery.min.js"></script>
+  <script src="../js/site.js"></script>
+
+</head>
+<body>
+
+  <!-- Primary Page Layout
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <div class="container">
+
+    <div class="navbar-spacer"></div>
+
+    <nav class="navbar">
+      <div class="container">
+        <ul class="navbar-list">
+          <li class="navbar-item"><a class="navbar-link" href="pages/intro.html">Introdução</a></li>
+          <li class="navbar-item"><a class="navbar-link" href="pages/hist.html">História</a></li>
+          <li class="navbar-item">
+            <a class="navbar-link" href="pages/dos.html" data-popover="#dosPopover"><i>DoS</i></a>
+            <div id="dosPopover" class="popover">
+              <ul class="popover-list">
+                <li class="popover-item">
+                  <a class="popover-link" href="pages/dos.html#1">O que é?</a>
+                </li>
+                <li class="popover-item">
+                  <a class="popover-link" href="pages/dos.html#2">Métodos de ataque</a>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li class="navbar-item">
+            <a class="navbar-link" href="pages/ddos.html" data-popover="#ddosPopover"><i>DDoS</i></a>
+            <div id="ddosPopover" class="popover">
+              <ul class="popover-list">
+                <li class="popover-item">
+                  <a class="popover-link" href="pages/ddos.html#1">Um caso particular de negação de serviços</a>
+                </li>
+                <li class="popover-item">
+                  <a class="popover-link" href="pages/ddos.html#2">Tipos</a>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li class="navbar-item">
+            <a class="navbar-link" href="pages/bots.html" data-popover="#botPopover"><i>Botnets</i></a>
+            <div id="botPopover" class="popover">
+              <ul class="popover-list">
+                <li class="popover-item">
+                  <a class="popover-link" href="pages/bots.html#1">O que são bots?</a>
+                </li>
+                <li class="popover-item">
+                  <a class="popover-link" href="pages/bots.html#2">Protocolos usados</a>
+                </li>
+                <li class="popover-item">
+                  <a class="popover-link" href="pages/bots.html#3">Como se propaga</a>
+                </li>
+                <li class="popover-item">
+                  <a class="popover-link" href="pages/bots.html#4"><i>Botnet</i> – Definição</a>
+                </li>
+                <li class="popover-item">
+                  <a class="popover-link" href="pages/bots.html#5">Topologias de comunicação da botnet</a>
+                </li>
+                <li class="popover-item">
+                  <a class="popover-link" href="pages/bots.html#6">Atividades Maliciosas</a>
+                </li>
+                <li class="popover-item">
+                  <a class="popover-link" href="pages/bots.html#7">Botnets legais</a>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li class="navbar-item">
+            <a class="navbar-link" href="pages/prot.html" data-popover="#protPopover">Proteção</a>
+            <div id="protPopover" class="popover">
+              <ul class="popover-list">
+                <li class="popover-item">
+                  <a class="popover-link" href="pages/prot.html#1">Prevenir</a>
+                </li>
+                <li class="popover-item">
+                  <a class="popover-link" href="pages/prot.html#2">Detectar</a>
+                </li>
+                <li class="popover-item">
+                  <a class="popover-link" href="pages/prot.html#3">Responder</a>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li class="navbar-item">
+            <a class="navbar-link" href="pages/contex.html" data-popover="#contexPopover">Contextualização</a>
+            <div id="contexPopover" class="popover">
+              <ul class="popover-list">
+                <li class="popover-item">
+                  <a class="popover-link" href="pages/contex.html#1">Notícias</a>
+                </li>
+                <li class="popover-item">
+                  <a class="popover-link" href="pages/contex.html#2">Questões</a>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li class="navbar-item"><a class="navbar-link" href="pages/conc.html">Conclusão</a></li>
+          <li class="navbar-item"><a class="navbar-link" href="pages/ref.html">Referências</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <section class="header">
+      <div class="row">
+      <h4 class="title">5. <i>Botnets</i></h4>
+      </div>
+    </section>
+
+    <!--  -->
+    <div class="docs-section" id="1">
+      <h5 class="docs-header">5.1. O que são bots?</h5>
+      <div class="example-grid docs-example">
+
+        <div class="row">
+            <div class="container">
+              <h6></h6>
+              <p> O termo <i>bot</i> é derivado de <i>“robot”</i> (robô em inglês) . <i>Bot</i> é um termo genérico usado para descrever um <i>script</i> ou um conjunto de <i>scripts</i> criados para desempenhar funções preestabelecidadas de forma automatizada. <i>Bots</i> são utilizados por máquinas de buscas para caminhar pela <i>web</i> tomando conhecimento dos conteúdos dos <i>websites</i> e em jogos online para prover oponentes virtuais.  Como exemplo concreto podemos citar a rede <i>IRC</i>i> na qual as funções dos <i>bots</i> nos canais incluem acesso à listas, movimentação de arquivos, compartilhamento de usuários , compartilhamento de informação do canal, e muitas outras funcionalidades desde que os devidos scripts sejam adicionados corretamente [11].  </p>
+            </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!--  -->
+    <div class="docs-section" id="2">
+      <h5 class="docs-header">5.2. Protocolos usados - <i>IRC</i></h5>
+      <div class="example-grid docs-example">
+
+        <div class="row">
+            <div class="container">
+              <h6></h6>
+              <p>Diversos protocolos podem ser utilizados para a realização de comunicação em <i>botnets</i>. Dentre os mais conhecidos temos o <i>Internet Relay Chat (IRC).</i></p>
+              <p>O <i>IRC</i> é um protocolo de internet criado pelo finlandês Jarkko Oikarinen, em 1998.  O objetivo desse protocolo é permitir que as pessoas conectadas à internet possam interagir em conversas por texto em tempo real [11]. Cada discussão está em um canal e várias pessoas podem ingressar nesse canal conjuntamente. O protocolo <i>IRC</i>i> é baseado na arquitetura cliente-servidor e é apropriada para execução distribuída em várias máquinas.</p>
+            </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!--  -->
+    <div class="docs-section" id="3">
+      <h5 class="docs-header">5.3. Como se propaga – atacante e vítima , prioridade de contaminação</h5>
+      <div class="example-grid docs-example">
+
+        <div class="row">
+            <div class="container">
+              <h6></h6>
+              <p>Os <i>bots</i> podem ser utilizados de forma maliciosa. Isto ocorre através da infecção de máquinas (vítimas)  por meio do atacante através da exploração de vulnerabilidades, de aplicações ou do próprio sistema operacional,  ou instalação do <i>bot</i> de forma não intencional. Após ser instalado o <i>bot</i> modifica variáveis do sistemas operacional para que seja inicializado toda vez que o sistema for inicializado. Com isso, os <i>bots</i> das máquinas vítimas estariam conectados com o <i>bot</i> da máquina atacante: a esse último damos o nome de <i>bot</i> mestre. O <i>bot</i> mestre pode causar grandes danos ao utilizar conjuntamente os <i>bots</i> presentes nas máquinas infectadas, as atividades maliciosas que podem ser realizadas serão melhor detalhadas na seção <b>6</b>. </p>
+            </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!--  -->
+    <div class="docs-section" id="4">
+      <h5 class="docs-header">5.4. <i>Botnet</i> – Definição</h5>
+      <div class="example-grid docs-example">
+
+        <div class="row">
+            <div class="container">
+              <h6></h6>
+              <p>Um conjunto de <i>bots</i> servindo juntos a um mesmo <i>bot</i> mestre constitui uma <i>botnet</i>. Com a finalidade de possibilitar a interação entre os <i>bots</i> e o <i>bot</i> mestre foram criadas algumas capacidades de comunicação que possibilitariam a recepção de comandos e o envio de resultados ao <i>bot</i> mestre. Segundo [6], existem dois tipos diferentes nos quais um <i>bot</i> pode receber comandos de seu mestre, são eles: (1) o modo de <b>“puxar”</b> e o modo de <b>“empurrar”</b>. Ambos precisam de um servidor de <i>command-and-control</i> (C&C)  que “conversa” com os <i>bots</i>.</p>
+            </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!--  -->
+    <div class="docs-section" id="5">
+      <h5 class="docs-header">5.5. Topologias de comunicação da botnet</h5>
+      <div class="example-grid docs-example">
+
+        <div class="row">
+            <div class="container">
+              <h6></h6>
+              <p>Diversas topologias <i>C&C</i> são empregadas com o intuito de garantir defesas comerciais, desligamentos determinados por lei e tentativas de “sequestro” de <i>bots</i> [15]. Essas topologias vem sendo otimizadas para reduzir <i>network chatter</i> e as falhas do sistema. As principais topologias utilizadas são : <b>estrela</b>, <b>multi-servidor</b>, <b>hierárquica</b> e <b>randômica</b>. </p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="container">
+              <h6>Estrela</h6>
+              <p>A topologia estrela possui um único centralizado recurso de C&C para se comunicar com todos os demais bots. Cada bot recebe instruções diretamente do ponto central C&C [15].</p>
+            </div>
+        </div>
+
+        <table class="u-full-width">
+          <thead>
+            <tr>
+              <th>Vantagens</th>
+              <th>Desvantagens</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>A comunicação direta entre o C&C e o bot agente possibilita a transferência de instruções (e dados roubados) rapidamente [15].</td>
+              <td>Possui um ponto único de falha. Caso o C&C central for bloqueado ou desabilitado, toda a botnet é neutralizada [15].</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="row">
+            <div class="container">
+              <h6>Multi-servidor</h6>
+              <p>Uma extensão lógica da topologia estrela, na qual vários servidores são utilizados para prover instruções de C&C para os bots agentes[15]. Esses servidores comunicam entre si enquanto gerenciam a botnet. Essa topologia de C&C é mais refinada e por isso exige uma maior esforço para ser implementada, porém por ter seu C&C descentralizado torna-se possível a manutenção da botnet mesmo caso um dos servidores de C&C forem derrubados. .</p>
+            </div>
+        </div>
+
+        <table class="u-full-width">
+          <thead>
+            <tr>
+              <th>Vantagens</th>
+              <th>Desvantagens</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Não possui um ponto único de falha. Caso um dos servidores C&C forem bloqueados ou desabilitados os remainescentes ainda são capazes de manter o controle de todos os demais bots agentes da botnet.</td>
+              <td>Exige mais esforço e conhecimento para a construção da infraestrutura de um C&C multi-servidor.</td>
+            </tr>
+            <tr>
+              <td>Torna possível a realização de otimizações geográficas por meio da distribuição adequada dos servidores de C&C aumentando a velocidade da comunicação entre os elementos da botnet.</td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="row">
+            <div class="container">
+              <h6>Hierárquica</h6>
+              <p>Reflete a dinâmica dos métodos utilizados na contaminação e na posterior propagação dos bots. Os bots agentes tem a habilidade de transmitir novas instruções de C&C para bots agentes  propagados anteriormente. A utilização desse método de propagação geralmente gera problemas com latência tornando difícil para o operador da botnet utilizar a botnet para atividades de tempo real [15].</p>
+              <p>Nessa topologia nenhum bot tem conhecimento da localização da botnet como um todo. Essa característica dificulta a determinação o tamanho de uma botnet. Essa estrutura também favorece a escalabilidade da botnet. </p>
+            </div>
+        </div>
+
+        <table class="u-full-width">
+          <thead>
+            <tr>
+              <th>Vantagens</th>
+              <th>Desvantagens</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>A interceptação ou tomada de controle dos bots agentes não enumerará todos os membros da botnet nem o servidor de C&C.</td>
+              <td>Devido a necessidade de transmissão de comandos por meio de múltiplos canais de comunicação há latência.</td>
+            </tr>
+            <tr>
+              <td>Maior escalabilidade da botnet.</td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="row">
+            <div class="container">
+              <h6>Randômica</h6>
+              <p>Não possui uma estrutura de C&C centralizada. Os comandos são introduzidos na botnet por meio de qualquer bot agente.  Esses comandos geralmente fazem com que o bot agente propague automaticamente os comandos para todos os demais bots agentes presentes na botnet [15] .</p>
+            </div>
+        </div>
+
+        <table class="u-full-width">
+          <thead>
+            <tr>
+              <th>Vantagens</th>
+              <th>Desvantagens</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>A ausência de uma infraestrutura de  C&C centralizada e o modelo de comunicação empregado torna muito dificil de derrubar a botnet.</td>
+              <td>A latência gerada pela natureza randômica dos links utilizados para a realização da comunicação de C&C.</td>
+            </tr>
+            <tr>
+              <td></td>
+              <td>É possível a identificação de bots agentes por meio do monitoramento das comunicações de um dado bot agente.</td>
+            </tr>
+          </tbody>
+        </table>
+
+      </div>
+    </div>
+
+    <!--  -->
+    <div class="docs-section" id="6">
+      <h5 class="docs-header">5.6. Atividades maliciosas</h5>
+      <div class="example-grid docs-example">
+
+        <div class="row">
+            <div class="container">
+              <h6></h6>
+              <p>Diversas atividades maliciosas podem ser desempenhadas com o uso de <i>botnets</i>. A principal é o ataque por negação de serviços distribuidos, cujas informações se encontram na seção <a href="#ddos">4</a>. Atividades como a <b>“infecção local secundária”</b> (<i>secondary local infection</i>) forçam a instalação de <i>key logger</i> ou cavalo de tróia para a obtenção de dados pessoais da vítima [11] . Demais atividades como <b>“troca de banda”</b>, <b><i>backdoor</i></b> e <b>armazenamento de dados ilegais</b> também serão abordados ao longo desta subseção.</p>
+              <p>...</p>
+            </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!--  -->
+    <div class="docs-section" id="7">
+      <h5 class="docs-header">5.7. Botnets Legais</h5>
+      <div class="example-grid docs-example">
+
+        <div class="row">
+            <div class="container">
+              <h6></h6>
+              <p>
+              <a href="">The Honeynet Project</a>; 
+              <a href="">Charity Engine</a>; 
+              <a href="">Folding @ home</a>
+              </p>
+            </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+<!-- End Document
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+</body>
+</html>

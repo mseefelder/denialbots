@@ -20,10 +20,10 @@ $(document).ready(function() {
   function init() {
     $window.on('scroll', onScroll)
     $window.on('resize', resize)
-    //$popoverLink.on('click', openPopover)
-    $popoverLink.on('mouseover', openPopover)
-    //$document.on('click', closePopover)
-    $document.on('mouseover', closePopover)
+    $popoverLink.on('click', openPopover)
+    //$popoverLink.on('mouseover', openPopover)
+    $document.on('click', closePopover)
+    //$document.on('mouseover', closePopover)
     $('a[href^="#"]').on('click', smoothScroll)
     buildSnippets();
   }
