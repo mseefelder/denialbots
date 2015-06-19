@@ -45,8 +45,20 @@
     <nav class="navbar">
       <div class="container">
         <ul class="navbar-list">
-          <li class="navbar-item"><a class="navbar-link" href="pages/intro.html">Introdução</a></li>
-          <li class="navbar-item"><a class="navbar-link" href="pages/hist.html">História</a></li>
+          <li class="navbar-item"><a class="navbar-link" href="#intro">Introdução</a></li>
+		  <li class="navbar-item">
+            <a class="navbar-link" href="pages/hist.html" data-popover="#contextPopover"><i>Contextualização</i></a>
+            <div id="contextPopover" class="popover">
+              <ul class="popover-list">
+                <li class="popover-item">
+                  <a class="popover-link" href="pages/hist.html#1">História?</a>
+                </li>
+                <li class="popover-item">
+                  <a class="popover-link" href="pages/hist.html#2">Notícias</a>
+                </li>
+              </ul>
+            </div>
+          </li>
           <li class="navbar-item">
             <a class="navbar-link" href="pages/dos.html" data-popover="#dosPopover"><i>DoS</i></a>
             <div id="dosPopover" class="popover">
@@ -81,13 +93,13 @@
                   <a class="popover-link" href="pages/bots.html#1">O que são bots?</a>
                 </li>
                 <li class="popover-item">
-                  <a class="popover-link" href="pages/bots.html#2">Protocolos usados</a>
+                  <a class="popover-link" href="pages/bots.html#2">Botnet</a>
                 </li>
                 <li class="popover-item">
-                  <a class="popover-link" href="pages/bots.html#3">Como se propaga</a>
+                  <a class="popover-link" href="pages/bots.html#3">IRC</a>
                 </li>
                 <li class="popover-item">
-                  <a class="popover-link" href="pages/bots.html#4"><i>Botnet</i> – Definição</a>
+                  <a class="popover-link" href="pages/bots.html#4"><i>Como se propaga – atacante e vítima , prioridade de contaminação</i></a>
                 </li>
                 <li class="popover-item">
                   <a class="popover-link" href="pages/bots.html#5">Topologias de comunicação da botnet</a>
@@ -116,21 +128,9 @@
                 </li>
               </ul>
             </div>
-          </li>
-          <li class="navbar-item">
-            <a class="navbar-link" href="pages/contex.html" data-popover="#contexPopover">Contextualização</a>
-            <div id="contexPopover" class="popover">
-              <ul class="popover-list">
-                <li class="popover-item">
-                  <a class="popover-link" href="pages/contex.html#1">Notícias</a>
-                </li>
-                <li class="popover-item">
-                  <a class="popover-link" href="pages/contex.html#2">Questões</a>
-                </li>
-              </ul>
-            </div>
-          </li>
+          </li>          
           <li class="navbar-item"><a class="navbar-link" href="pages/conc.html">Conclusão</a></li>
+		  <li class="navbar-item"><a class="navbar-link" href="pages/quest.html">Questões</a></li>
           <li class="navbar-item"><a class="navbar-link" href="pages/ref.html">Referências</a></li>
         </ul>
       </div>
