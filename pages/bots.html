@@ -165,7 +165,7 @@
         <div class="row">
             <div class="container">
               <h6></h6>
-              <p>Um conjunto de <i>bots</i> servindo juntos a um mesmo <i>bot</i> mestre constitui uma <i>botnet</i>. Com a finalidade de possibilitar a interação entre os <i>bots</i> e o <i>bot</i> mestre foram criadas algumas capacidades de comunicação que possibilitariam a recepção de comandos e o envio de resultados ao <i>bot</i> mestre. Segundo [6], existem dois tipos diferentes nos quais um <i>bot</i> pode receber comandos de seu mestre, são eles: (1) o modo de <b>“puxar”</b> e o modo de <b>“empurrar”</b>. Ambos precisam de um servidor de <i>command-and-control</i> (C&C)  que “conversa” com os <i>bots</i>.</p>
+              <p>Um conjunto de <i>bots</i> servindo juntos a um mesmo <i>bot</i> mestre constitui uma <i>botnet</i>. Com a finalidade de possibilitar a interação entre os <i>bots</i> e o <i>bot</i> mestre foram criadas algumas capacidades de comunicação que possibilitariam a recepção de comandos e o envio de resultados ao <i>bot</i> mestre. Segundo [6], existem dois tipos diferentes nos quais um <i>bot</i> pode receber comandos de seu mestre, são eles: (1) o modo de <b>“puxar”</b> e o modo de <b>“empurrar”</b>. Ambos precisam de um servidor de <i>command-and-control</i> (C&C)  que “conversa” com os <i>bots</i> agentes, este assunto será abordado de maneira mais ampla na seção <b>5.5</b>.</p>
             </div>
         </div>
 
@@ -181,7 +181,7 @@
             <div class="container">
               <h6></h6>
               <p>Diversos protocolos podem ser utilizados para a realização de comunicação em <i>botnets</i>. Dentre os mais conhecidos temos o <i>Internet Relay Chat (IRC).</i></p>
-              <p>O <i>IRC</i> é um protocolo de internet criado pelo finlandês Jarkko Oikarinen, em 1988.  O objetivo desse protocolo é permitir que as pessoas conectadas à internet possam interagir em conversas por texto em tempo real [11]. Cada discussão está em um canal e várias pessoas podem ingressar nesse canal conjuntamente. O protocolo <i>IRC</i>i> é baseado na arquitetura cliente-servidor e é apropriada para execução distribuída em várias máquinas.</p>
+              <p>O <i>IRC</i> é um protocolo de internet criado pelo finlandês Jarkko Oikarinen, em 1988.  O objetivo desse protocolo é permitir que as pessoas conectadas à internet possam interagir em conversas por texto em tempo real [11]. Cada discussão está em um canal e várias pessoas podem ingressar nesse canal conjuntamente. O protocolo <i>IRC</i> é baseado na arquitetura cliente-servidor e é apropriada para execução distribuída em várias máquinas.</p>
             </div>
         </div>
 
@@ -196,7 +196,7 @@
         <div class="row">
             <div class="container">
               <h6></h6>
-              <p>Os <i>bots</i> podem ser utilizados de forma maliciosa. Isto ocorre através da infecção de máquinas (vítimas)  por meio do atacante através da exploração de vulnerabilidades, de aplicações ou do próprio sistema operacional,  ou instalação do <i>bot</i> de forma não intencional. Após ser instalado o <i>bot</i> modifica variáveis do sistemas operacional para que seja inicializado toda vez que o sistema for inicializado. Com isso, os <i>bots</i> das máquinas vítimas estariam conectados com o <i>bot</i> da máquina atacante: a esse último damos o nome de <i>bot</i> mestre. O <i>bot</i> mestre pode causar grandes danos ao utilizar conjuntamente os <i>bots</i> presentes nas máquinas infectadas, as atividades maliciosas que podem ser realizadas serão melhor detalhadas na subseção <b>5.6</b>. </p>
+              <p>Os <i>bots</i> podem ser utilizados de forma maliciosa. Isto ocorre através da infecção de máquinas (vítimas)  por meio do atacante através da exploração de vulnerabilidades, de aplicações ou do próprio sistema operacional,  ou instalação do bot de forma não intencional. Após ser instalado o <i>bot</i> modifica variáveis do sistemas operacional para que seja inicializado toda vez que o sistema for inicializado. Com isso, os <i>bots</i> das máquinas vítimas (bots agentes) estariam conectados com o <i>bot</i> da máquina atacante (<i>bot</i> mestre). Alguns parâmetros podem ser utilizados para o estabelecimento de prioridades de contaminação de máquinas em meio ao universo de possíveis alvos. Dentre esses parâmetros temos a quantidade de banda disponível por meio desse <i>bot</i>, poder de processamento dessa máquina,etc. O <i>bot</i> mestre pode causar grandes danos ao utilizar conjuntamente os bots presentes nas máquinas infectadas, as atividades maliciosas que podem ser realizadas serão melhor detalhadas na seção 6. </p>
             </div>
         </div>
 
@@ -248,7 +248,7 @@
         <div class="row">
             <div class="container">
               <h6>Multi-servidor</h6>
-              <p>Uma extensão lógica da topologia estrela, na qual vários servidores são utilizados para prover instruções de C&C para os bots agentes[15]. Esses servidores comunicam entre si enquanto gerenciam a botnet. Essa topologia de C&C é mais refinada e por isso exige uma maior esforço para ser implementada, porém por ter seu C&C descentralizado torna-se possível a manutenção da botnet mesmo caso um dos servidores de C&C forem derrubados. .</p>
+              <p>Uma extensão lógica da topologia estrela, na qual vários servidores são utilizados para prover instruções de C&C para os bots agentes[15]. Esses servidores comunicam entre si enquanto gerenciam a botnet. Essa topologia de C&C é mais refinada e por isso exige uma maior esforço para ser implementada, porém por ter seu C&C descentralizado torna-se possível a manutenção da botnet mesmo caso um dos servidores de C&C forem derrubados.</p>
             </div>
         </div>
 
@@ -352,7 +352,13 @@
         <div class="row">
             <div class="container">
               <h6></h6>
-              <p>Diversas atividades maliciosas podem ser desempenhadas com o uso de <i>botnets</i>. A principal é o ataque por negação de serviços distribuidos, cujas informações se encontram na seção <a href="pages/dos.html">4</a>. Atividades como a <b>“infecção local secundária”</b> (<i>secondary local infection</i>) forçam a instalação de <i>key logger</i> ou cavalo de tróia para a obtenção de dados pessoais da vítima [11] . Demais atividades como <b>“troca de banda”</b>, <b><i>backdoor</i></b> e <b>armazenamento de dados ilegais</b> também serão abordados ao longo desta subseção.</p>
+              <p>Diversas atividades maliciosas podem ser desempenhadas com o uso de <i>botnets</i>. A principal é o ataque por negação de serviços distribuidos, cujas informações se encontram na seção <a href="pages/dos.html">4</a>. Atividades como a <b>“infecção local secundária”</b> (<i>secondary local infection</i>) forçam a instalação de <i>key logger</i> ou cavalo de tróia para a obtenção de dados pessoais da vítima [11] . Demais atividades como <b>“troca de banda”</b>, <b><i>backdoor</i></b> e <b>armazenamento de dados ilegais</b> também serão abordadas abaixo:</p>
+				<p>
+					<ul><b>"Troca de banda"</b> <ul>Consiste na troca da banda de alta velocidade de máquinas infectadas (<i>bots</i>) entre as comunidades <i>hackers</i>.</ul></ul>
+					<ul><i><b>Backdoor</b></i><ul>Utilizado para a manutenção do controle da máquina infectada mesmo após a falha de segurança que permitiu a contaminação ter sido eliminada.</ul></ul>
+					<ul><b>Armazenamento de dados ilegais</b><ul>Os <i>bots</i> podem ser utilizados para armazenar dados ilegais, tais como filmes, documentos, músicas, etc. Um exemplo bastante conhecido seria o <i>Torrent</i>.</ul></ul>
+				</p>
+			  
             </div>
         </div>
 
