@@ -165,7 +165,7 @@
         <div class="row">
             <div class="container">
               <h6></h6>
-              <p>Um conjunto de <i>bots</i> servindo juntos a um mesmo <i>bot</i> mestre constitui uma <i>botnet</i>. Com a finalidade de possibilitar a interação entre os <i>bots</i> e o <i>bot</i> mestre foram criadas algumas capacidades de comunicação que possibilitariam a recepção de comandos e o envio de resultados ao <i>bot</i> mestre. Segundo <a href="ref.html">[6]</a>, existem dois tipos diferentes nos quais um <i>bot</i> pode receber comandos de seu mestre, são eles: (1) o modo de <b>“puxar”</b> e o modo de <b>“empurrar”</b>. Ambos precisam de um servidor de <i>command-and-control</i> (C&C)  que “conversa” com os <i>bots</i> agentes, este assunto será abordado de maneira mais ampla na <a href="#5">Seção <b>5.5</b></a>.</p>
+              <p>Um conjunto de <i>bots</i> servindo juntos a um mesmo <i>bot</i> mestre constitui uma <i>botnet</i>. Com a finalidade de possibilitar a interação entre os <i>bots</i> e o <i>bot</i> mestre foram criadas algumas capacidades de comunicação que possibilitariam a recepção de comandos e o envio de resultados ao <i>bot</i> mestre. Segundo <a href="ref.html">[3]</a>, existem dois tipos diferentes nos quais um <i>bot</i> pode receber comandos de seu mestre, são eles: (1) o modo de <b>“puxar”</b> e o modo de <b>“empurrar”</b>. Ambos precisam de um servidor de <i>command-and-control</i> (C&C)  que “conversa” com os <i>bots</i> agentes, este assunto será abordado de maneira mais ampla na <a href="#5">Seção <b>5.5</b></a>.</p>
             </div>
         </div>
 
@@ -181,7 +181,7 @@
             <div class="container">
               <h6></h6>
               <p>Diversos protocolos podem ser utilizados para a realização de comunicação em <i>botnets</i>. Dentre os mais conhecidos temos o <i>Internet Relay Chat (IRC).</i></p>
-              <p>O <i>IRC</i> é um protocolo de internet criado pelo finlandês Jarkko Oikarinen, em 1988.  O objetivo desse protocolo é permitir que as pessoas conectadas à internet possam interagir em conversas por texto em tempo real <a href="ref.html">[11]<a>. Cada discussão está em um canal e várias pessoas podem ingressar nesse canal conjuntamente. O protocolo <i>IRC</i> é baseado na arquitetura cliente-servidor e é apropriada para execução distribuída em várias máquinas.</p>
+              <p>O <i>IRC</i> é um protocolo de internet criado pelo finlandês Jarkko Oikarinen, em 1988.  O objetivo desse protocolo é permitir que as pessoas conectadas à internet possam interagir em conversas por texto em tempo real <a href="ref.html">[6]<a>. Cada discussão está em um canal e várias pessoas podem ingressar nesse canal conjuntamente. O protocolo <i>IRC</i> é baseado na arquitetura cliente-servidor e é apropriada para execução distribuída em várias máquinas.</p>
             </div>
         </div>
 
@@ -213,14 +213,14 @@
         <div class="row">
             <div class="container">
               <h6></h6>
-              <p>Diversas topologias <i>C&C</i> são empregadas com o intuito de garantir defesas comerciais, desligamentos determinados por lei e tentativas de “sequestro” de <i>bots</i> <a href="ref.html">[15]</a>. Essas topologias vem sendo otimizadas para reduzir <i>network chatter</i> e as falhas do sistema. As principais topologias utilizadas são : <b>estrela</b>, <b>multi-servidor</b>, <b>hierárquica</b> e <b>randômica</b>. </p>
+              <p>Diversas topologias <i>C&C</i> são empregadas com o intuito de garantir defesas comerciais, desligamentos determinados por lei e tentativas de “sequestro” de <i>bots</i> <a href="ref.html">[8]</a>. Essas topologias vem sendo otimizadas para reduzir <i>network chatter</i> e as falhas do sistema. As principais topologias utilizadas são : <b>estrela</b>, <b>multi-servidor</b>, <b>hierárquica</b> e <b>randômica</b>. </p>
             </div>
         </div>
 
         <div class="row">
             <div class="container">
               <h6>Estrela</h6>
-              <p>A topologia estrela possui um único centralizado recurso de C&C para se comunicar com todos os demais bots. Cada bot recebe instruções diretamente do ponto central C&C <a href="ref.html">[15]</a>.</p>
+              <p>A topologia estrela possui um único centralizado recurso de C&C para se comunicar com todos os demais bots. Cada bot recebe instruções diretamente do ponto central C&C <a href="ref.html">[8]</a>.</p>
             </div>
         </div>
 
@@ -233,8 +233,8 @@
           </thead>
           <tbody>
             <tr>
-              <td>A comunicação direta entre o C&C e o bot agente possibilita a transferência de instruções (e dados roubados) rapidamente <a href="ref.html">[15]</a>.</td>
-              <td>Possui um ponto único de falha. Caso o C&C central for bloqueado ou desabilitado, toda a botnet é neutralizada <a href="ref.html">[15]</a>.</td>
+              <td>A comunicação direta entre o C&C e o bot agente possibilita a transferência de instruções (e dados roubados) rapidamente <a href="ref.html">[8]</a>.</td>
+              <td>Possui um ponto único de falha. Caso o C&C central for bloqueado ou desabilitado, toda a botnet é neutralizada <a href="ref.html">[8]</a>.</td>
             </tr>
           </tbody>
         </table>
@@ -248,7 +248,7 @@
         <div class="row">
             <div class="container">
               <h6>Multi-servidor</h6>
-              <p>Uma extensão lógica da topologia estrela, na qual vários servidores são utilizados para prover instruções de C&C para os bots agentes<a href="ref.html">[15]</a>. Esses servidores comunicam entre si enquanto gerenciam a botnet. Essa topologia de C&C é mais refinada e por isso exige uma maior esforço para ser implementada, porém por ter seu C&C descentralizado torna-se possível a manutenção da botnet mesmo caso um dos servidores de C&C forem derrubados.</p>
+              <p>Uma extensão lógica da topologia estrela, na qual vários servidores são utilizados para prover instruções de C&C para os bots agentes<a href="ref.html">[8]</a>. Esses servidores comunicam entre si enquanto gerenciam a botnet. Essa topologia de C&C é mais refinada e por isso exige uma maior esforço para ser implementada, porém por ter seu C&C descentralizado torna-se possível a manutenção da botnet mesmo caso um dos servidores de C&C forem derrubados.</p>
             </div>
         </div>
 
@@ -279,7 +279,7 @@
         <div class="row">
             <div class="container">
               <h6>Hierárquica</h6>
-              <p>Reflete a dinâmica dos métodos utilizados na contaminação e na posterior propagação dos bots. Os bots agentes tem a habilidade de transmitir novas instruções de C&C para bots agentes  propagados anteriormente. A utilização desse método de propagação geralmente gera problemas com latência tornando difícil para o operador da botnet utilizar a botnet para atividades de tempo real <a href="ref.html">[15]</a>.</p>
+              <p>Reflete a dinâmica dos métodos utilizados na contaminação e na posterior propagação dos bots. Os bots agentes tem a habilidade de transmitir novas instruções de C&C para bots agentes  propagados anteriormente. A utilização desse método de propagação geralmente gera problemas com latência tornando difícil para o operador da botnet utilizar a botnet para atividades de tempo real <a href="ref.html">[8]</a>.</p>
               <p>Nessa topologia nenhum bot tem conhecimento da localização da botnet como um todo. Essa característica dificulta a determinação o tamanho de uma botnet. Essa estrutura também favorece a escalabilidade da botnet. </p>
             </div>
         </div>
@@ -312,7 +312,7 @@
         <div class="row">
             <div class="container">
               <h6>Randômica</h6>
-              <p>Não possui uma estrutura de C&C centralizada. Os comandos são introduzidos na botnet por meio de qualquer bot agente.  Esses comandos geralmente fazem com que o bot agente propague automaticamente os comandos para todos os demais bots agentes presentes na botnet <a href="ref.html">[15]</a> .</p>
+              <p>Não possui uma estrutura de C&C centralizada. Os comandos são introduzidos na botnet por meio de qualquer bot agente.  Esses comandos geralmente fazem com que o bot agente propague automaticamente os comandos para todos os demais bots agentes presentes na botnet <a href="ref.html">[8]</a> .</p>
             </div>
         </div>
 
@@ -352,7 +352,7 @@
         <div class="row">
             <div class="container">
               <h6></h6>
-              <p>Diversas atividades maliciosas podem ser desempenhadas com o uso de <i>botnets</i>. A principal é o ataque por negação de serviços distribuidos, cujas informações se encontram na <a href="dos.html">Seção 4</a>. Atividades como a <b>“infecção local secundária”</b> (<i>secondary local infection</i>) forçam a instalação de <i>key logger</i> ou cavalo de tróia para a obtenção de dados pessoais da vítima <a href="ref.html">[11]</a> . Demais atividades como <b>“troca de banda”</b>, <b><i>backdoor</i></b> e <b>armazenamento de dados ilegais</b> também serão abordadas abaixo:</p>
+              <p>Diversas atividades maliciosas podem ser desempenhadas com o uso de <i>botnets</i>. A principal é o ataque por negação de serviços distribuidos, cujas informações se encontram na <a href="dos.html">Seção 4</a>. Atividades como a <b>“infecção local secundária”</b> (<i>secondary local infection</i>) forçam a instalação de <i>key logger</i> ou cavalo de tróia para a obtenção de dados pessoais da vítima <a href="ref.html">[6]</a> . Demais atividades como <b>“troca de banda”</b>, <b><i>backdoor</i></b> e <b>armazenamento de dados ilegais</b> também serão abordadas abaixo:</p>
 				<p>
 					<ul><b>"Troca de banda"</b> <ul>Consiste na troca da banda de alta velocidade de máquinas infectadas (<i>bots</i>) entre as comunidades <i>hackers</i>.</ul></ul>
 					<ul><i><b>Backdoor</b></i><ul>Utilizado para a manutenção do controle da máquina infectada mesmo após a falha de segurança que permitiu a contaminação ter sido eliminada.</ul></ul>
@@ -379,7 +379,7 @@
               </p>
 			  <p>
 			  <a href="http://folding.stanford.edu/"><i>Folding @ home</i></a>
-				<p><i>Folding @ Home</i> é um projeto de <i>Stanford</i> similar à <i>Charity Engine</i>. Esse projeto também implementa uma <i>botnet</i> nos mesmos moldes, porém com objetivo de auxiliar os cientistas por meio do processamento de dados utilizado para realização de pesquisas em temas <i>Alzheimer’s, Huntington’s, Parkinson’s</i> e vários tipos de câncer <a href="ref.html">[9]</a>.</p>
+				<p><i>Folding @ Home</i> é um projeto de <i>Stanford</i> similar à <i>Charity Engine</i>. Esse projeto também implementa uma <i>botnet</i> nos mesmos moldes, porém com objetivo de auxiliar os cientistas por meio do processamento de dados utilizado para realização de pesquisas em temas <i>Alzheimer’s, Huntington’s, Parkinson’s</i> e vários tipos de câncer <a href="ref.html">[5]</a>.</p>
               </p>
             </div>
         </div>
