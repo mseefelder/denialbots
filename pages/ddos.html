@@ -142,7 +142,7 @@
       </div>
     </section>
 
-    <!-- Introdução -->
+     <!-- Introdução -->
     <div class="docs-section" id="1">
       <h5 class="docs-header">4.1. Um caso particular de negação de serviços</h5>
       <div class="example-grid docs-example">
@@ -150,7 +150,19 @@
         <div class="row">
             <div class="container">
               <h6></h6>
-              <p>...</p>
+              <p>Ataques de Negação de Serviços Distribuída são uma vertente dos Ataques de Negação de Serviço (DoS) que se utilizam de uma rede de máquinas escravas para realizar um ataque conjunto e coordenado contra um alvo, tendo os mesmos objetivos dos ataques DoS: comprometer um indivíduo ou organização através de ataques que sobrecarregam seus servidores e/ou sistemas para negar o serviço que o mesmo oferece para seus clientes.
+              </p>
+              <p>
+              O fato de utilizar diversas máquinas em conjunto realizando ataques de negação de serviço torna esse método bastante difícil de defender e capaz de afetar sistemas maiores, mais velozes e mais protegidos do que um simples ataque de DoS poderia.</p>
+              <p>
+                Os ataques DDoS possuem duas fases principais:
+              </p>
+              <p>
+              <b>Na primeira</b> o responsável pelo ataque precisa recrutar máquinas para realizar o ataque (também conhecidas como máquinas <i>zumbi</i> ou <i>agentes</i>), geralmente escaneando a rede e encontrando máquinas vulneráveis que possam ser infectadas com o código de ataque.
+              </p>
+              <p>
+                <b>Na segunda</b> o ataque é executado quando o atacante (<i>attacker</i>, como na literatura, ou <i>cliente</i>) envia um comando de ataque para as máquinas zumbis através de um canal seguro a fim de iniciar o ataque conjunto contra o alvo, ou simplesmente devido à data programada para o ataque no código malicioso dos agentes.
+              </p>
             </div>
         </div>
 
@@ -159,13 +171,31 @@
 
     <!-- Introdução -->
     <div class="docs-section" id="2">
-      <h5 class="docs-header">4.2. Tipos</h5>
+      <h5 class="docs-header">4.2. Classificação</h5>
       <div class="example-grid docs-example">
 
         <div class="row">
             <div class="container">
               <h6></h6>
-              <p>...</p>
+              <p>Em [16] é proposta uma taxonomia para a classificação de ataques DDoS baseada nos <b>meios</b> utilizados tanto para a preparação quanto para a execução do ataque, as <b>características</b> do mesmo e o <b>efeito</b> causado na vitima. Apresentaremos, a seguir uma classificação simplificada baseada tanto no artigo anteriormente citado, quanto em [19] e [21].</p>
+              <h6>4.2.1. Quanto à preparação</h6>
+              <p>Como descrevemos anteriormente, <b>a primeira fase</b> de um ataque DDoS requer o recrutamento de máquinas vulneráveis para executar o ataque. Nas primeiras versões dos ataques distribuídos, essa contaminação das máquinas zumbi era feita de maneira <b>manual</b>, com o atacante buscando máquinas vulneráveis, invadindo as mesmas e as infectando. Com o passar do tempo essa fase foi <b>automatizada</b> com o uso de scripts para escanear a rede, detectar e infectar máquinas, que por sua vez propagam a infecção pela rede, tema que será explorado na Seção 5.
+              </p>
+              <p>O comando de ataque pode ser automático, pré-programado no código de ataque instalado nas agentes ou pode haver uma conexão entre as agentes e máquinas administradoras (na literatura, <i>handlers</i>), que são controladas pelo atacante e utilizadas para definir o endereço e as instruções do ataque a ser realizado.</p>
+              <h6>4.2.2. Quanto ao tipo ataque</h6>
+              <ul>
+                <li>
+                  <b>Consumo de banda e recursos:</b> 
+                  <p>É o tipo de ataque mais simples, baseado em direcionar tráfego o bastante para o alvo com o intuito de congestionar sua banda disponível ou esgotar recursos da vítima, tendo como exemplos principais as técnicas de <i>packet-flooding</i> - por exemplo, <i>Smurf</i> e <i>Fraggle</i> citados na Seção 3 - que cumprem a tarefa devido ao grande volume de pacotes enviados.</p>
+                </li>
+                <li>
+                  <b>Exploração de protocolos ou aplicações:</b> 
+                  <p>São ataques que buscam afetar a vítima através da exploração de uma característica ou <i>bug</i> de um protocolo ou aplicação específica para consumir seus recursos. Um ataque de protocolo simples, que apresenta também características de ataque de consumo de recursos, é o <i>SYN Flooding</i> (Seção 3) que se aproveita de falhas no protocolo TCP. Ataques de <i>CGI request</i> e <i>authentication server</i> também são citados como exemplo em [16].</p>
+                  <p>Ataques de aplicação são, por exemplo, aqueles que miram em falhas específicas de servidores e sistemas operacionais ou os chamados ataques <i>Zero-day</i>, que são ataques desconhecidos ou ainda não executados que podem ser executados através da exploração de falhas para as quais ainda não foi feita correção.</p>
+                </li>
+              </ul>
+              <h6>4.2.3. Considerações</h6>
+              <p>Ataques exploração de <b>protocolo ou aplicações</b> precisam de <b>menos recursos</b> para serem realizados do que aqueles que focam em banda e recursos. Porém, os mesmos são mais facilmente evitados através da <b>modificação de protocolos da vítima</b>.</p>
             </div>
         </div>
 
